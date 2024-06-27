@@ -1,7 +1,14 @@
 <ul>
   @for (meal of meals; track meal.name) {
-  <li>{{ meal.name }} {{ meal.type }}</li>
+  <li>{{ meal.name }} {{ meal.type }}
+    <input type="checkbox">
+  </li>
+
   }
 </ul>
+
+<button>Add Meal</button>
+<button>Add Ingredient</button>
+<button>Get Ingredients List</button>
 
 <router-outlet />
