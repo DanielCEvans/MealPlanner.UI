@@ -1,23 +1,30 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Observable, map } from 'rxjs';
+
+interface Meal {
+  name: string;
+  type: string;
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'meal-planner-ui';
+  meals: Meal[] = [];
+  backendUrl: string = 'http://localhost:5157/api/meals';
 
-  constructor(private http: HttpClient){};
+  constructor(private http: HttpClient) {
+    this.getMeals().subscribe((response) => (this.meals = response));
+  }
 
-  ngOnInit(){
-    const backendUrl = 'http://localhost:5157/api/meals';
-    this.http.get(backendUrl).subscribe(response => {
-      console.log(response);
-    })
+  getMeals(): Observable<Meal[]> {
+    return this.http.get<Meal[]>(this.backendUrl);
   }
 }

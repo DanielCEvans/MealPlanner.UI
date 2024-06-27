@@ -1,2 +1,7 @@
+<ul>
+  @for (meal of meals; track meal.name) {
+  <li>{{ meal.name }} {{ meal.type }}</li>
+  }
+</ul>
 
 <router-outlet />
