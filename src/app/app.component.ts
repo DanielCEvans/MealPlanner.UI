@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { NavComponent } from "./nav/nav.component";
 
 interface Meal {
   name: string;
@@ -13,7 +14,8 @@ interface Meal {
   standalone: true,
   imports: [
     RouterOutlet,
-  ],
+    NavComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
