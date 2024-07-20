@@ -27,4 +27,8 @@ export class AppComponent {
   getMeals(): Observable<Meal[]> {
     return this.http.get<Meal[]>(this.backendUrl);
   }
+
+  getIngredients(){
+    console.log('Getting Ingredients');
+  }
 }
