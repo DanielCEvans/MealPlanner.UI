@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { NavComponent } from "./nav/nav.component";
 
 interface Meal {
@@ -29,7 +29,23 @@ export class AppComponent {
   }
 
   getMeals(): Observable<Meal[]> {
-    return this.http.get<Meal[]>(this.backendUrl);
+    // return this.http.get<Meal[]>(this.backendUrl);
+    const testMeals: Meal[] = [
+      {
+        "name": "Dans Pesto Pasta",
+        "type": "Dinner"
+      },
+      {
+        "name": "Chicken Alfredo",
+        "type": "Lunch"
+      },
+      {
+        "name": "Garlic Tomato Pasta",
+        "type": "Dinner"
+      }
+    ];
+
+    return of(testMeals);
   }
 
   getIngredients(){
