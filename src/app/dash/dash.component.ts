@@ -7,6 +7,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MealService } from '../meals/meal.service';
+
+interface Meal {
+  name: string;
+  type: string;
+}
 
 @Component({
   selector: 'app-dash',
@@ -24,6 +30,12 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class DashComponent {
   private breakpointObserver = inject(BreakpointObserver);
+
+  meals: Meal[] = [];
+
+  constructor (mealService: MealService) {
+    mealService.getMeals().subscribe(response => {this.meals = response;})
+  }
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

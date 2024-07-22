@@ -1,12 +1,12 @@
 <div class="grid-container">
   <h3 class="mat-h3">What are you cooking this week?</h3>
-  <mat-grid-list cols="2" rowHeight="350px">
-    @for (card of cards | async; track card) {
-      <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-list cols="8" rowHeight="350px">
+    @for (meal of meals; track meal) {
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
         <mat-card class="dashboard-card">
           <mat-card-header>
             <mat-card-title>
-              {{card.title}}
+              {{meal.name}}
               <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
