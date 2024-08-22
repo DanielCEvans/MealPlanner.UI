@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavComponent } from "./nav/nav.component";
 
 @Component({
@@ -7,6 +7,8 @@ import { NavComponent } from "./nav/nav.component";
   standalone: true,
   imports: [
     RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
     NavComponent
 ],
   templateUrl: './app.component.html',

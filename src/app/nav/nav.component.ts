@@ -8,7 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { DashComponent } from '../dash/dash.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -22,7 +22,9 @@ import { DashComponent } from '../dash/dash.component';
     MatListModule,
     MatIconModule,
     AsyncPipe,
-    DashComponent
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet
   ]
 })
 export class NavComponent {

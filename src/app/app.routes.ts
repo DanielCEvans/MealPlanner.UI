@@ -7,6 +7,6 @@ import { AddIngredientComponent } from './add-ingredient/add-ingredient.componen
 export const routes: Routes = [
   { path: 'select-meals', component: SelectMealsComponent },
   { path: 'your-fridge', component: FrigeComponent },
-  { path: 'add-meals', component: AddMealComponent },
+  { path: 'add-meal', component: AddMealComponent },
   { path: 'add-ingredient', component: AddIngredientComponent },
 ];
