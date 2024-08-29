@@ -1,1 +1,4 @@
-<p>select-meals works!</p>
+@for (meal of meals; track meal.name) {
+  <p>{{meal.name}}</p>
+  <p>{{meal.type}}</p>
+}

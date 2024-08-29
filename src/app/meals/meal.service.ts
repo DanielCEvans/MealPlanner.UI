@@ -17,22 +17,7 @@ export class MealService {
   constructor(private http: HttpClient) {}
 
   getMeals(): Observable<Meal[]> {
+    console.log('calling backend to get meals');
     return this.http.get<Meal[]>(this.backendUrl);
-    // const testMeals: Meal[] = [
-    //   {
-    //     "name": "Dans Pesto Pasta",
-    //     "type": "Dinner"
-    //   },
-    //   {
-    //     "name": "Chicken Alfredo",
-    //     "type": "Lunch"
-    //   },
-    //   {
-    //     "name": "Garlic Tomato Pasta",
-    //     "type": "Dinner"
-    //   }
-    // ];
-
-    // return of(testMeals);
   }
 }
