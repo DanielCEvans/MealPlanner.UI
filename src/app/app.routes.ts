@@ -5,6 +5,7 @@ import { AddMealComponent } from './add-meal/add-meal.component';
 import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
 
 export const routes: Routes = [
+  { path: '', component: SelectMealsComponent },
   { path: 'select-meals', component: SelectMealsComponent },
   { path: 'your-fridge', component: FrigeComponent },
   { path: 'add-meal', component: AddMealComponent },
