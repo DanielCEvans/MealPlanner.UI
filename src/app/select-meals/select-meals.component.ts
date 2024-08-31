@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MealService } from '../meals/meal.service';
 
 interface Meal {
@@ -13,14 +13,18 @@ interface Meal {
   templateUrl: './select-meals.component.html',
   styleUrl: './select-meals.component.css'
 })
-export class SelectMealsComponent {
+export class SelectMealsComponent implements OnInit {
 
-  meals: Array<Meal> = [];
+  meals: Meal[] = [];
 
-  constructor(mealService: MealService){
-    mealService.getMeals().subscribe(response => {
-      this.meals = response;
-    })
+  constructor(private mealService:MealService){};
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
+    this.mealService.getData().subscribe(response => this.meals = response);
   }
 
 }
