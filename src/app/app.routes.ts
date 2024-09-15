@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { SelectMealsComponent } from './select-meals/select-meals.component';
-import { FrigeComponent } from './frige/frige.component';
+import { FrigeComponent } from './fridge/fridge.component';
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { AddIngredientComponent } from './add-ingredient/add-ingredient.component';
 
