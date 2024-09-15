@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 export class Ingredient {
   constructor(
@@ -12,13 +13,14 @@ export class Ingredient {
 @Component({
   selector: 'app-add-ingredient',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './add-ingredient.component.html',
   styleUrl: './add-ingredient.component.css'
 })
 export class AddIngredientComponent {
-  units = ['ml', 'gm', 'kg', 'L', 'tsp', 'tbs']
-  category = ['herbs', 'meat', 'seafood', 'fruit & veg', 'spices']
+  // TODO: remove empty string, is there a better way??
+  units = ['', 'ml', 'gm', 'kg', 'L', 'tsp', 'tbs']
+  categories = ['', 'herbs', 'meat', 'seafood', 'fruit & veg', 'spices']
   submitted = false;
 
   onSubmit(){
