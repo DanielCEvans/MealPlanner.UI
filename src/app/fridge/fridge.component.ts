@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IngredientsService } from '../services/ingredients.service';
 
 interface Ingredient {
   ingredientName: string,
@@ -16,9 +16,16 @@ interface Ingredient {
   templateUrl: './fridge.component.html',
   styleUrl: './fridge.component.css'
 })
-export class FrigeComponent {
+export class FrigeComponent implements OnInit {
 
-  constructor(httpClient: HttpClient){
+  public ingredients: Ingredient[] = [];
+
+  constructor(private IngredientsService: IngredientsService){
+  }
+
+  ngOnInit(): void {
+    this.IngredientsService.getIngredients().subscribe((response) => {
+      this.ingredients = response});
   }
 
 }

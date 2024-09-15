@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MealService } from '../services/meals/meal.service';
+import { MealService } from '../services/meal.service';
 
 interface Meal {
   name: string,

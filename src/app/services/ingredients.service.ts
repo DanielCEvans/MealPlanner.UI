@@ -15,14 +15,13 @@ interface Ingredient {
 })
 export class IngredientsService {
 
-  backendUrl: string = 'http://localhost:8088/api/meals';
+  backendUrl: string = 'http://localhost:8088/api/ingredients';
 
   private cachedIngredients: Ingredient[] = [];
 
   constructor(private http: HttpClient) {}
 
   getIngredients(): Observable<Ingredient[]> {
-
     if(this.cachedIngredients.length > 0){
       return of(this.cachedIngredients)
     } else {
