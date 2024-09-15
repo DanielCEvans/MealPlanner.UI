@@ -11,7 +11,8 @@ interface Meal {
   providedIn: 'root'
 })
 export class MealService {
-  backendUrl: string = 'http://localhost:5157/api/meals';
+  // backendUrl: string = 'http://localhost:5157/api/meals';
+  backendUrl: string = 'http://localhost:8088/api/meals';
 
   private cachedMealsData: Meal[] = [];
 
