@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IngredientsService } from '../services/ingredients.service';
-
-interface Ingredient {
-  ingredientName: string,
-  measurementUnit: string,
-  ingredientAmount: number,
-  ingredientCategory: string,
-  mealIngredients?: string
-}
+import { IngredientsService, Ingredient } from '../services/ingredients.service';
 
 @Component({
   selector: 'app-fridge',

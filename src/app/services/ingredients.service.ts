@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 
-interface Ingredient {
-  ingredientName: string,
-  measurementUnit: string,
-  ingredientAmount: number,
-  ingredientCategory: string,
-  mealIngredients: any
+export class Ingredient {
+  name?: string;
+  unit?: string;
+  amount?: number;
+  category?: string;
+
+  constructor(){}
 }
 
 @Injectable({
@@ -31,6 +32,10 @@ export class IngredientsService {
         })
       )
     }
+  }
+
+  addIngredient(ingredient: Ingredient): Observable<number> {
+   return this.http.post<number>(this.backendUrl, ingredient);
   }
 
   clearCache() {

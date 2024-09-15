@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MealService } from '../services/meal.service';
-
-interface Meal {
-  name: string,
-  type: string
-}
+import { MealService, Meal } from '../services/meal.service';
 
 @Component({
   selector: 'app-select-meals',

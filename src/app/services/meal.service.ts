@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 
-interface Meal {
+export interface Meal {
   name: string;
   type: string;
 }

@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-export class Ingredient {
-  constructor(
-    public name?: string,
-    public unit?: string,
-    public amount?: number,
-    public category?: string
-  ) {}
-}
+import { IngredientsService, Ingredient } from '../services/ingredients.service';
 
 @Component({
   selector: 'app-add-ingredient',
@@ -24,8 +16,18 @@ export class AddIngredientComponent {
   categories = ['', 'herbs', 'meat', 'seafood', 'fruit & veg', 'spices']
   submitted = false;
 
+  constructor(private IngredientsService: IngredientsService) {
+  }
+
   onSubmit(){
     this.submitted = true;
+  }
+
+  addIngredient(){
+    // TODO: fix this design
+    if(this.ingredient){
+      this.IngredientsService.addIngredient(this.ingredient).subscribe(response => console.log(response));
+    }
   }
 
 }
