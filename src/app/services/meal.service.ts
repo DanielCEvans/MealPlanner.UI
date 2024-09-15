@@ -21,14 +21,12 @@ export class MealService {
   getData(): Observable<Meal[]> {
     if(this.cachedMealsData.length > 0){
       // return the cached data if the array is not empty
-      console.log('using cached data');
       return of(this.cachedMealsData);
     } else {
       return this.http.get<Meal[]>(this.backendUrl).pipe(
         tap((data) => {
           // this will return the original data fetched from the backend
           // and also store the data in the cache as a side effect
-          console.log('fetching data from backend');
           this.cachedMealsData = data;
         })
       )
