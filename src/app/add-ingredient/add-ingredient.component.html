@@ -1,24 +1,24 @@
 <div>
   <label for="name">Name:</label>
-  <input type="text" id="name" required>
+  <input type="text" id="name" required [(ngModel)]="ingredient.name">
 </div>
 <div>
   <label for="unit">Measurement Unit:</label>
   <select id="unit" required>
     @for (unit of units; track unit) {
-      <option>{{unit}}</option>
+      <option [(ngModel)]="ingredient.unit">{{unit}}</option>
     }
   </select>
 </div>
 <div>
   <label for="amount">Amount:</label>
-  <input type="number" required>
+  <input type="number" required [(ngModel)]="ingredient.amount">
 </div>
 <div>
   <label for="category">Category:</label>
   <select id="category">
     @for (category of categories; track category) {
-      <option>{{category}}</option>
+      <option [(ngModel)]="ingredient.category">{{category}}</option>
     }
   </select>
 </div>
