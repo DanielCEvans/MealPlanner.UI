@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MealService, Meal } from '../services/meal.service';
+import { Recipe, RecipeService } from '../services/recipe.service';
 
 @Component({
   selector: 'app-select-meals',
@@ -10,16 +10,16 @@ import { MealService, Meal } from '../services/meal.service';
 })
 export class SelectMealsComponent implements OnInit {
 
-  meals: Meal[] = [];
+  recipes: Recipe[] = [];
 
-  constructor(private mealService:MealService){};
+  constructor(private recipeService:RecipeService){};
 
   ngOnInit(): void {
     this.loadData();
   }
 
   loadData() {
-    this.mealService.getData().subscribe(response => this.meals = response);
+    this.recipeService.getData().subscribe(response => this.recipes = response);
   }
 
 }

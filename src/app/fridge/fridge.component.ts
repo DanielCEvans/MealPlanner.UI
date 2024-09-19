@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IngredientsService, Ingredient } from '../services/ingredients.service';
+import { IngredientsService, UserIngredient } from '../services/ingredients.service';
 
 @Component({
   selector: 'app-fridge',
@@ -10,7 +10,7 @@ import { IngredientsService, Ingredient } from '../services/ingredients.service'
 })
 export class FrigeComponent implements OnInit {
 
-  public ingredients: Ingredient[] = [];
+  public ingredients: UserIngredient[] = [];
 
   constructor(private IngredientsService: IngredientsService){
   }

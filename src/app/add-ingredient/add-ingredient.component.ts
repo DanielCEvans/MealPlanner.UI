@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IngredientsService, Ingredient } from '../services/ingredients.service';
+import { IngredientsService } from '../services/ingredients.service';
 
 @Component({
   selector: 'app-add-ingredient',
@@ -10,7 +10,7 @@ import { IngredientsService, Ingredient } from '../services/ingredients.service'
   styleUrl: './add-ingredient.component.css'
 })
 export class AddIngredientComponent {
-  ingredient: Ingredient = new Ingredient();
+  // ingredient: Ingredient = new Ingredient();
   // TODO: remove empty string, is there a better way??
   units = ['', 'ml', 'gm', 'kg', 'L', 'tsp', 'tbs']
   categories = ['', 'herbs', 'meat', 'seafood', 'fruit & veg', 'spices']
@@ -25,9 +25,9 @@ export class AddIngredientComponent {
 
   addIngredient(){
     // TODO: fix this design
-    if(this.ingredient){
-      this.IngredientsService.addIngredient(this.ingredient).subscribe(response => console.log(response));
-    }
+    // if(this.ingredient){
+    //   this.IngredientsService.addIngredient(this.ingredient).subscribe(response => console.log(response));
+    // }
   }
 
 }

@@ -2,38 +2,39 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
 
-export interface Meal {
+export interface Recipe {
+  id: number
   name: string;
-  type: string;
+  description: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class MealService {
-  // backendUrl: string = 'http://localhost:5157/api/meals';
-  backendUrl: string = 'http://localhost:8088/api/meals';
+export class RecipeService {
+  backendUrl: string = 'http://localhost:5157/api/recipes';
+  // backendUrl: string = 'http://localhost:8088/api/recipes';
 
-  private cachedMealsData: Meal[] = [];
+  private cachedRecipes: Recipe[] = [];
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<Meal[]> {
-    if(this.cachedMealsData.length > 0){
+  getData(): Observable<Recipe[]> {
+    if(this.cachedRecipes.length > 0){
       // return the cached data if the array is not empty
-      return of(this.cachedMealsData);
+      return of(this.cachedRecipes);
     } else {
-      return this.http.get<Meal[]>(this.backendUrl).pipe(
+      return this.http.get<Recipe[]>(this.backendUrl).pipe(
         tap((data) => {
           // this will return the original data fetched from the backend
           // and also store the data in the cache as a side effect
-          this.cachedMealsData = data;
+          this.cachedRecipes = data;
         })
       )
     }
   }
 
   clearCache(){
-    this.cachedMealsData = [];
+    this.cachedRecipes = [];
   }
 }
